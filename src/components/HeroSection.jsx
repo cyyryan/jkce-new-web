@@ -55,19 +55,14 @@ const HeroSection = ({ language = 'en', onPageChange }) => {
     <section className="relative h-screen overflow-hidden">
       {/* Video Background */}
       <div className="absolute inset-0">
-        <video
-          ref={videoRef}
+        <iframe
+          src="https://player.vimeo.com/video/1098913311?autoplay=1&loop=1&background=1&muted=1"
+          frameBorder="0"
+          allow="autoplay; fullscreen; picture-in-picture"
+          allowFullScreen
           className="w-full h-full object-cover"
-          loop
-          muted
-          playsInline
-          poster="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-        >
-          {/* 主要视频源 - 本地文件 */}
-          <source src="/videos/banner-video-v2.mp4" type="video/mp4" />
-          您的浏览器不支持视频播放。
-        </video>
-        
+          title="Banner Video"
+        ></iframe>
         {/* Video Overlay */}
         <div className="absolute inset-0 bg-black bg-opacity-50"></div>
       </div>
