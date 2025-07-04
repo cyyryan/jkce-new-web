@@ -52,17 +52,17 @@ const HeroSection = ({ language = 'en', onPageChange }) => {
   }
 
   return (
-    <section className="relative h-screen overflow-hidden">
+    <section className="relative w-screen h-screen overflow-hidden p-0 m-0">
       {/* Video Background */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 w-full h-full">
         <div className="w-full h-full absolute inset-0">
           <iframe
             src="https://player.vimeo.com/video/1098913311?autoplay=1&loop=1&background=1&muted=1"
             frameBorder="0"
             allow="autoplay; fullscreen; picture-in-picture"
             allowFullScreen
-            className="w-full h-full absolute inset-0"
-            style={{ objectFit: 'cover' }}
+            className="absolute inset-0 w-full h-full"
+            style={{ minWidth: '100vw', minHeight: '100vh', width: '100vw', height: '100vh', objectFit: 'cover' }}
             title="Banner Video"
           ></iframe>
           <div className="absolute inset-0 bg-black bg-opacity-50"></div>
@@ -70,8 +70,8 @@ const HeroSection = ({ language = 'en', onPageChange }) => {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 flex items-center justify-center h-full py-8">
-        <div className="text-center text-white max-w-xs sm:max-w-xl md:max-w-2xl lg:max-w-4xl mx-auto px-4 mt-16 sm:mt-24">
+      <div className="relative z-10 flex items-center justify-center h-full py-8 w-full h-full">
+        <div className="text-center text-white px-4 mt-16 sm:mt-24 w-full">
           {/* Main Content */}
           <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-6 leading-tight break-words">
             {t.title}
@@ -109,7 +109,7 @@ const HeroSection = ({ language = 'en', onPageChange }) => {
           </div>
         </div>
       </div>
-      {/* Scroll Indicator - 移到这里，和内容容器同级 */}
+      {/* Scroll Indicator */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
         <div className="w-6 h-10 border-2 border-white border-opacity-50 rounded-full flex justify-center">
           <div className="w-1 h-3 bg-white bg-opacity-50 rounded-full mt-2 animate-pulse"></div>
