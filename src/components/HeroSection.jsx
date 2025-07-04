@@ -64,7 +64,7 @@ const HeroSection = ({ language = 'en', onPageChange }) => {
           poster="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
         >
           {/* 主要视频源 - 本地文件 */}
-          <source src="/videos/banner-video.mp4" type="video/mp4" />
+          <source src="/videos/banner-video-v2.mp4" type="video/mp4" />
           {/* 备用视频源 - 如果本地文件不存在 */}
           <source src="https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_1mb.mp4" type="video/mp4" />
           {/* 第二备用视频源 */}
