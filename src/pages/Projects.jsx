@@ -1,246 +1,322 @@
 import React, { useState } from 'react'
+import { projects, getCategories } from '../data/projects'
 
 const Projects = () => {
   const [activeFilter, setActiveFilter] = useState('all')
+  const [selectedProject, setSelectedProject] = useState(null)
+  const [isModalOpen, setIsModalOpen] = useState(false)
 
   const filters = [
-    { id: 'all', name: '全部项目' },
-    { id: 'residential', name: '住宅建设' },
-    { id: 'commercial', name: '商业建筑' },
-    { id: 'infrastructure', name: '基础设施' },
-    { id: 'renovation', name: '装修工程' }
-  ]
-
-  const projects = [
-    {
-      id: 1,
-      title: '现代别墅群',
-      category: 'residential',
-      location: '深圳南山',
-      area: '2000㎡',
-      duration: '12个月',
-      year: '2023',
-      image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2075&q=80',
-      description: '高端别墅群项目，采用现代简约设计风格，注重空间布局和居住体验。',
-      features: ['现代简约风格', '智能家居系统', '环保材料', '景观设计']
-    },
-    {
-      id: 2,
-      title: '商业综合体',
-      category: 'commercial',
-      location: '广州天河',
-      area: '15000㎡',
-      duration: '18个月',
-      year: '2023',
-      image: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      description: '集购物、办公、娱乐为一体的现代化商业综合体，成为区域地标建筑。',
-      features: ['商业综合体', '智能建筑', '绿色节能', '多功能空间']
-    },
-    {
-      id: 3,
-      title: '智能办公楼',
-      category: 'commercial',
-      location: '北京朝阳',
-      area: '8000㎡',
-      duration: '15个月',
-      year: '2022',
-      image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2069&q=80',
-      description: '采用智能建筑技术，配备先进的办公设施，提供舒适高效的工作环境。',
-      features: ['智能办公', '节能环保', '现代设计', '高效空间']
-    },
-    {
-      id: 4,
-      title: '豪华公寓',
-      category: 'residential',
-      location: '上海浦东',
-      area: '12000㎡',
-      duration: '20个月',
-      year: '2022',
-      image: 'https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2035&q=80',
-      description: '高端公寓项目，配备完善的配套设施，为业主提供高品质的居住体验。',
-      features: ['豪华公寓', '配套设施', '品质生活', '社区服务']
-    },
-    {
-      id: 5,
-      title: '城市桥梁',
-      category: 'infrastructure',
-      location: '杭州西湖',
-      area: '5000㎡',
-      duration: '24个月',
-      year: '2021',
-      image: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
-      description: '现代化城市桥梁项目，采用先进工程技术，确保安全性和美观性。',
-      features: ['桥梁工程', '安全设计', '美观造型', '耐久性']
-    },
-    {
-      id: 6,
-      title: '精品酒店装修',
-      category: 'renovation',
-      location: '成都锦江',
-      area: '3000㎡',
-      duration: '8个月',
-      year: '2021',
-      image: 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2076&q=80',
-      description: '精品酒店装修项目，融合现代设计理念，打造独特的住宿体验。',
-      features: ['精品装修', '现代设计', '舒适体验', '品质服务']
-    }
+    { id: 'all', name: 'All Projects' },
+    ...getCategories()
   ]
 
   const filteredProjects = activeFilter === 'all' 
     ? projects 
     : projects.filter(project => project.category === activeFilter)
 
+  const handleViewDetails = (project) => {
+    setSelectedProject(project)
+    setIsModalOpen(true)
+  }
+
+  const closeModal = () => {
+    setIsModalOpen(false)
+    setSelectedProject(null)
+  }
+
   return (
-    <div>
+    <div className="pt-20">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-primary-600 to-primary-800 text-white py-20">
+      <section className="bg-gradient-to-r from-primary-900 to-primary-700 text-white py-20">
         <div className="container-custom">
-          <div className="text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">工程案例</h1>
-            <p className="text-xl text-primary-100 max-w-3xl mx-auto">
-              展示我们完成的优秀项目，每一个案例都体现了我们的专业水准和服务质量，
-              见证了我们15年来的成长与进步。
+          <div className="max-w-4xl mx-auto text-center">
+            <h1 className="text-4xl lg:text-6xl font-bold mb-6">
+              Our Work
+            </h1>
+            <p className="text-xl lg:text-2xl text-primary-100">
+              Showcasing our projects across Western Canada, from earthwork to construction management
             </p>
           </div>
         </div>
       </section>
 
-      {/* Filters */}
-      <section className="section-padding bg-white">
+      {/* Project Stats */}
+      <section className="py-16 bg-white">
         <div className="container-custom">
-          <div className="flex flex-wrap justify-center gap-4 mb-12">
+          <div className="grid md:grid-cols-4 gap-8 text-center">
+            <div>
+              <div className="text-4xl font-bold text-primary-600 mb-2">100+</div>
+              <div className="text-gray-600">Projects Completed</div>
+            </div>
+            <div>
+              <div className="text-4xl font-bold text-primary-600 mb-2">15+</div>
+              <div className="text-gray-600">Years Experience</div>
+            </div>
+            <div>
+              <div className="text-4xl font-bold text-primary-600 mb-2">Western</div>
+              <div className="text-gray-600">Canada Coverage</div>
+            </div>
+            <div>
+              <div className="text-4xl font-bold text-primary-600 mb-2">98%</div>
+              <div className="text-gray-600">Client Satisfaction</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Project Filters */}
+      <section className="py-8 bg-gray-50">
+        <div className="container-custom">
+          <div className="flex flex-wrap justify-center gap-4">
             {filters.map((filter) => (
               <button
                 key={filter.id}
                 onClick={() => setActiveFilter(filter.id)}
-                className={`px-6 py-3 rounded-lg font-medium transition-colors duration-200 ${
+                className={`px-6 py-3 rounded-lg font-medium transition-colors ${
                   activeFilter === filter.id
-                    ? 'bg-primary-600 text-white'
-                    : 'bg-secondary-100 text-secondary-700 hover:bg-secondary-200'
+                    ? 'bg-primary-500 text-white'
+                    : 'bg-white text-gray-700 hover:bg-gray-100'
                 }`}
               >
                 {filter.name}
               </button>
             ))}
           </div>
+        </div>
+      </section>
 
-          {/* Projects Grid */}
+      {/* Projects Grid */}
+      <section className="py-20 bg-white">
+        <div className="container-custom">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {filteredProjects.map((project) => (
-              <div
-                key={project.id}
-                className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 group"
-              >
-                {/* Project Image */}
-                <div className="relative h-48 overflow-hidden">
+              <div key={project.id} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                <div className="relative h-64 overflow-hidden">
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
                   <div className="absolute top-4 left-4">
-                    <span className="inline-block bg-primary-600 text-white text-xs px-2 py-1 rounded">
-                      {filters.find(f => f.id === project.category)?.name}
-                    </span>
-                  </div>
-                  <div className="absolute top-4 right-4">
-                    <span className="inline-block bg-white/90 text-secondary-900 text-xs px-2 py-1 rounded font-medium">
-                      {project.year}
+                    <span className="bg-primary-500 text-white px-3 py-1 rounded-full text-sm font-medium">
+                      {project.category.charAt(0).toUpperCase() + project.category.slice(1)}
                     </span>
                   </div>
                 </div>
-
-                {/* Project Info */}
+                
                 <div className="p-6">
-                  <h3 className="text-xl font-semibold text-secondary-900 mb-3 group-hover:text-primary-600 transition-colors duration-200">
+                  <h3 className="text-xl font-bold text-gray-900 mb-2">
                     {project.title}
                   </h3>
-                  
-                  <p className="text-secondary-600 text-sm mb-4 line-clamp-2">
+                  <p className="text-primary-600 font-medium mb-3">
+                    📍 {project.location}
+                  </p>
+                  <p className="text-gray-600 mb-4 leading-relaxed">
                     {project.description}
                   </p>
-
-                  <div className="space-y-2 mb-4">
-                    <div className="flex items-center text-sm text-secondary-600">
-                      <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-                      </svg>
-                      {project.location}
-                    </div>
-                    <div className="flex items-center justify-between text-sm text-secondary-600">
-                      <span>面积: {project.area}</span>
-                      <span>工期: {project.duration}</span>
-                    </div>
-                  </div>
-
-                  {/* Features */}
+                  
                   <div className="flex flex-wrap gap-2 mb-4">
                     {project.features.map((feature, index) => (
                       <span
                         key={index}
-                        className="inline-block bg-secondary-100 text-secondary-700 text-xs px-2 py-1 rounded"
+                        className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm"
                       >
                         {feature}
                       </span>
                     ))}
                   </div>
-
-                  <button className="w-full btn-primary">
-                    查看详情
+                  
+                  <button 
+                    onClick={() => handleViewDetails(project)}
+                    className="w-full bg-primary-500 text-white font-semibold py-3 px-6 rounded-lg hover:bg-primary-600 transition-colors"
+                  >
+                    View Details
                   </button>
                 </div>
               </div>
             ))}
           </div>
-
-          {filteredProjects.length === 0 && (
-            <div className="text-center py-12">
-              <div className="text-secondary-400 text-lg">暂无相关项目</div>
-            </div>
-          )}
         </div>
       </section>
 
-      {/* Stats */}
-      <section className="section-padding bg-secondary-50">
+      {/* Project Process */}
+      <section className="py-20 bg-gray-50">
         <div className="container-custom">
-          <div className="grid md:grid-cols-4 gap-8 text-center">
-            <div>
-              <div className="text-4xl font-bold text-primary-600 mb-2">500+</div>
-              <div className="text-secondary-600">完成项目</div>
+          <div className="text-center mb-16">
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-6">
+              Our Project Approach
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              We follow a systematic approach to ensure every project meets the highest standards of quality and safety
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="text-center">
+              <div className="w-16 h-16 bg-primary-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                <span className="text-white font-bold text-xl">1</span>
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">Assessment</h3>
+              <p className="text-gray-600">
+                Comprehensive site assessment and project requirements analysis
+              </p>
             </div>
-            <div>
-              <div className="text-4xl font-bold text-primary-600 mb-2">15年</div>
-              <div className="text-secondary-600">行业经验</div>
+
+            <div className="text-center">
+              <div className="w-16 h-16 bg-primary-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                <span className="text-white font-bold text-xl">2</span>
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">Planning</h3>
+              <p className="text-gray-600">
+                Detailed project planning with timeline and resource allocation
+              </p>
             </div>
-            <div>
-              <div className="text-4xl font-bold text-primary-600 mb-2">98%</div>
-              <div className="text-secondary-600">客户满意度</div>
+
+            <div className="text-center">
+              <div className="w-16 h-16 bg-primary-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                <span className="text-white font-bold text-xl">3</span>
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">Execution</h3>
+              <p className="text-gray-600">
+                Professional execution with strict quality and safety standards
+              </p>
             </div>
-            <div>
-              <div className="text-4xl font-bold text-primary-600 mb-2">50+</div>
-              <div className="text-secondary-600">专业团队</div>
+
+            <div className="text-center">
+              <div className="w-16 h-16 bg-primary-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                <span className="text-white font-bold text-xl">4</span>
+              </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">Delivery</h3>
+              <p className="text-gray-600">
+                Final inspection and project handover with ongoing support
+              </p>
             </div>
           </div>
         </div>
       </section>
 
       {/* CTA */}
-      <section className="section-padding bg-primary-600 text-white">
+      <section className="py-20 bg-primary-500 text-white">
         <div className="container-custom text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            准备开始您的项目？
+          <h2 className="text-3xl lg:text-4xl font-bold mb-6">
+            Ready to Start Your Project?
           </h2>
           <p className="text-xl text-primary-100 mb-8 max-w-2xl mx-auto">
-            联系我们的专业团队，获取免费咨询和详细报价。我们期待与您合作，共同打造完美的建筑作品。
+            Let's discuss your construction needs and turn your vision into reality with our experienced team.
           </p>
-          <button className="btn-primary bg-white text-primary-600 hover:bg-primary-50">
-            立即咨询
-          </button>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <button className="bg-white text-primary-500 font-semibold py-4 px-8 rounded-lg hover:bg-gray-100 transition-colors text-lg">
+              Get Free Quote
+            </button>
+            <button className="bg-transparent border-2 border-white text-white font-semibold py-4 px-8 rounded-lg hover:bg-white hover:text-primary-500 transition-colors text-lg">
+              Contact Us
+            </button>
+          </div>
         </div>
       </section>
+
+      {/* Project Details Modal */}
+      {isModalOpen && selectedProject && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+          <div className="bg-white rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+            <div className="relative">
+              {/* Modal Header */}
+              <div className="flex justify-between items-center p-6 border-b">
+                <h2 className="text-2xl font-bold text-gray-900">{selectedProject.title}</h2>
+                <button
+                  onClick={closeModal}
+                  className="text-gray-400 hover:text-gray-600 transition-colors"
+                >
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </button>
+              </div>
+
+              {/* Modal Content */}
+              <div className="p-6">
+                {/* Project Image */}
+                <div className="mb-6">
+                  <img
+                    src={selectedProject.image}
+                    alt={selectedProject.title}
+                    className="w-full h-64 object-cover rounded-lg"
+                  />
+                </div>
+
+                {/* Project Info Grid */}
+                <div className="grid md:grid-cols-2 gap-6 mb-6">
+                  <div>
+                    <h3 className="text-lg font-semibold text-gray-900 mb-2">Project Details</h3>
+                    <div className="space-y-2 text-gray-600">
+                      <p><span className="font-medium">Location:</span> {selectedProject.location}</p>
+                      <p><span className="font-medium">Category:</span> {selectedProject.category.charAt(0).toUpperCase() + selectedProject.category.slice(1)}</p>
+                      <p><span className="font-medium">Timeline:</span> {selectedProject.timeline}</p>
+                      <p><span className="font-medium">Team Size:</span> {selectedProject.teamSize}</p>
+                    </div>
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold text-gray-900 mb-2">Key Features</h3>
+                    <div className="flex flex-wrap gap-2">
+                      {selectedProject.features.map((feature, index) => (
+                        <span
+                          key={index}
+                          className="bg-primary-100 text-primary-700 px-3 py-1 rounded-full text-sm font-medium"
+                        >
+                          {feature}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Detailed Description */}
+                <div className="mb-6">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-3">Project Overview</h3>
+                  <p className="text-gray-600 leading-relaxed">{selectedProject.detailedDescription}</p>
+                </div>
+
+                {/* Challenges and Solutions */}
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div>
+                    <h3 className="text-lg font-semibold text-gray-900 mb-3">Challenges</h3>
+                    <ul className="space-y-2">
+                      {selectedProject.challenges.map((challenge, index) => (
+                        <li key={index} className="flex items-start">
+                          <span className="text-red-500 mr-2 mt-1">•</span>
+                          <span className="text-gray-600">{challenge}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div>
+                    <h3 className="text-lg font-semibold text-gray-900 mb-3">Our Solutions</h3>
+                    <ul className="space-y-2">
+                      {selectedProject.solutions.map((solution, index) => (
+                        <li key={index} className="flex items-start">
+                          <span className="text-green-500 mr-2 mt-1">•</span>
+                          <span className="text-gray-600">{solution}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              {/* Modal Footer */}
+              <div className="flex justify-end p-6 border-t bg-gray-50">
+                <button
+                  onClick={closeModal}
+                  className="bg-primary-500 text-white font-semibold py-2 px-6 rounded-lg hover:bg-primary-600 transition-colors"
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   )
 }

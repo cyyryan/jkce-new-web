@@ -1,166 +1,147 @@
 import React from 'react'
 
-const WhyChooseUs = () => {
-  const advantages = [
-    {
-      icon: (
-        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-        </svg>
-      ),
-      title: '专业团队',
-      description: '拥有50+名专业工程师和技术人员，平均行业经验超过10年。'
-    },
-    {
-      icon: (
-        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-        </svg>
-      ),
-      title: '按时交付',
-      description: '严格的项目管理流程，确保每个项目都能按时高质量完成。'
-    },
-    {
-      icon: (
-        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1" />
-        </svg>
-      ),
-      title: '价格透明',
-      description: '提供详细的报价清单，无隐藏费用，让您清楚了解每一笔支出。'
-    },
-    {
-      icon: (
-        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-        </svg>
-      ),
-      title: '贴心服务',
-      description: '从项目开始到结束，提供全程贴心服务，让您省心省力。'
-    },
-    {
-      icon: (
-        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-        </svg>
-      ),
-      title: '质量保证',
-      description: '所有项目都经过严格的质量检查，确保符合国家标准和客户要求。'
-    },
-    {
-      icon: (
-        <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-        </svg>
-      ),
-      title: '快速响应',
-      description: '24小时客服热线，快速响应客户需求，及时解决问题。'
+const text = {
+  en: {
+    title: 'WHY CHOOSE JKCE PROBUILD?',
+    subtitle: 'Our projects span Western Canada, providing reliable, high-quality solutions for homeowners, developers, and general contractors.',
+    reasons: [
+      {
+        title: "EXPERIENCED TEAM",
+        description: "Skilled in complex site conditions with years of industry expertise"
+      },
+      {
+        title: "SAFETY-FIRST APPROACH",
+        description: "Strict adherence to safety standards ensuring project security"
+      },
+      {
+        title: "TIMELY DELIVERY",
+        description: "Avoiding delays to keep projects on schedule and within budget"
+      },
+      {
+        title: "ENVIRONMENTALLY RESPONSIBLE",
+        description: "Soil disposal and erosion control with minimal environmental impact"
+      }
+    ],
+    additional: {
+      title: "Serving Western Canada",
+      description: "With our headquarters in Richmond, BC, we serve clients across Western Canada, bringing our expertise in earthwork and construction management to every project.",
+      features: [
+        "Richmond, BC based operations",
+        "Two specialized divisions",
+        "Comprehensive construction services"
+      ],
+      cta: {
+        title: "Ready to Start?",
+        description: "Let's discuss your project requirements and turn your blueprints into reality.",
+        button: "Get Free Quote"
+      }
     }
-  ]
+  },
+  zh: {
+    title: '为什么选择JKCE PROBUILD？',
+    subtitle: '我们的项目遍布加拿大西部，为业主、开发商和总承包商提供可靠、高质量的解决方案。',
+    reasons: [
+      {
+        title: "经验丰富的团队",
+        description: "拥有多年行业经验，擅长处理复杂场地条件"
+      },
+      {
+        title: "安全第一理念",
+        description: "严格遵守安全标准，确保项目安全"
+      },
+      {
+        title: "按时交付",
+        description: "避免延误，确保项目按计划并在预算内完成"
+      },
+      {
+        title: "环保责任",
+        description: "土壤处理和侵蚀控制，最小化环境影响"
+      }
+    ],
+    additional: {
+      title: "服务加拿大西部",
+      description: "我们总部位于不列颠哥伦比亚省列治文，为加拿大西部各地的客户提供服务，将我们在土方工程和施工管理方面的专业知识带到每个项目中。",
+      features: [
+        "总部位于列治文，不列颠哥伦比亚省",
+        "两个专业部门",
+        "全面的建筑服务"
+      ],
+      cta: {
+        title: "准备开始了吗？",
+        description: "让我们讨论您的项目需求，将您的蓝图变为现实。",
+        button: "获取免费报价"
+      }
+    }
+  }
+}
+
+const WhyChooseUs = ({ language = 'en' }) => {
+  const t = text[language] || text.en
 
   return (
-    <section className="section-padding bg-white">
-      <div className="container-custom">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Content */}
-          <div className="space-y-8">
-            <div className="space-y-4">
-              <h2 className="text-3xl md:text-4xl font-bold text-secondary-900">
-                为什么选择
-                <span className="text-primary-600"> JKCE承建商</span>
-              </h2>
-              <p className="text-lg text-secondary-600">
-                15年来，我们始终坚持"质量第一、客户至上"的服务理念，为数千个家庭和企业提供了优质的建筑服务。
-              </p>
-            </div>
+    <section className="py-20 bg-white relative overflow-hidden">
+      <div className="absolute inset-0 pointer-events-none" style={{background: 'linear-gradient(45deg,rgba(240,180,41,0.10) 0%,rgba(240,180,41,0.03) 100%)'}}></div>
+      <div className="container-custom relative z-10">
+        <div className="text-center mb-16">
+          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+            {t.title}
+          </h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            {t.subtitle}
+          </p>
+        </div>
 
-            <div className="grid sm:grid-cols-2 gap-6">
-              {advantages.map((advantage, index) => (
-                <div key={index} className="flex items-start space-x-4">
-                  <div className="w-10 h-10 bg-primary-100 rounded-lg flex items-center justify-center text-primary-600 flex-shrink-0">
-                    {advantage.icon}
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-secondary-900 mb-2">
-                      {advantage.title}
-                    </h3>
-                    <p className="text-sm text-secondary-600">
-                      {advantage.description}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <div className="bg-primary-50 rounded-xl p-6">
-              <div className="flex items-center space-x-4">
-                <div className="w-12 h-12 bg-primary-600 rounded-full flex items-center justify-center">
-                  <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {t.reasons.map((reason, index) => (
+            <div key={index} className="text-center group bg-gray-50 rounded-2xl shadow-2xl p-8 hover:shadow-[0_8px_32px_0_rgba(59,130,246,0.18)] transition-shadow duration-300">
+              <div className="w-20 h-20 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:bg-primary-200 transition-colors duration-300">
+                <div className="text-primary-500">
+                  <svg className="w-12 h-12" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
                   </svg>
                 </div>
-                <div>
-                  <h3 className="font-semibold text-secondary-900">
-                    行业领先
-                  </h3>
-                  <p className="text-sm text-secondary-600">
-                    连续5年获得"优秀建筑企业"称号，是您值得信赖的合作伙伴。
-                  </p>
-                </div>
               </div>
+              <h3 className="text-xl font-bold text-gray-900 mb-4">
+                {reason.title}
+              </h3>
+              <p className="text-gray-600 leading-relaxed">
+                {reason.description}
+              </p>
             </div>
-          </div>
+          ))}
+        </div>
 
-          {/* Image/Stats */}
-          <div className="relative">
-            <div className="bg-gradient-to-br from-primary-600 to-primary-800 rounded-2xl p-8 text-white">
-              <div className="space-y-8">
-                <div className="text-center">
-                  <h3 className="text-2xl font-bold mb-4">我们的成就</h3>
-                  <p className="text-primary-100">
-                    15年专业经验，500+成功项目
-                  </p>
-                </div>
-
-                <div className="grid grid-cols-2 gap-6">
-                  <div className="text-center">
-                    <div className="text-3xl font-bold mb-2">500+</div>
-                    <div className="text-primary-200 text-sm">完成项目</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-3xl font-bold mb-2">15年</div>
-                    <div className="text-primary-200 text-sm">行业经验</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-3xl font-bold mb-2">98%</div>
-                    <div className="text-primary-200 text-sm">客户满意度</div>
-                  </div>
-                  <div className="text-center">
-                    <div className="text-3xl font-bold mb-2">50+</div>
-                    <div className="text-primary-200 text-sm">专业团队</div>
-                  </div>
-                </div>
-
-                <div className="bg-white/10 rounded-lg p-4">
-                  <div className="flex items-center space-x-3">
-                    <svg className="w-6 h-6 text-primary-200" fill="currentColor" viewBox="0 0 20 20">
+        {/* Additional Info */}
+        <div className="mt-16 bg-gray-50 rounded-2xl p-8 lg:p-12">
+          <div className="grid lg:grid-cols-2 gap-8 items-center">
+            <div>
+              <h3 className="text-3xl font-bold text-gray-900 mb-6">
+                {t.additional.title}
+              </h3>
+              <p className="text-lg text-gray-600 mb-6 leading-relaxed">
+                {t.additional.description}
+              </p>
+              <div className="space-y-4">
+                {t.additional.features.map((feature, index) => (
+                  <div key={index} className="flex items-center">
+                    <svg className="w-6 h-6 text-primary-600 mr-3" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                     </svg>
-                    <span className="text-primary-100">ISO9001质量认证</span>
+                    <span className="text-gray-700">{feature}</span>
                   </div>
-                </div>
+                ))}
               </div>
             </div>
-
-            {/* Floating elements */}
-            <div className="absolute -top-4 -right-4 bg-white shadow-lg rounded-lg p-4 border border-secondary-200">
-              <div className="text-sm font-medium text-secondary-900">专业资质</div>
-              <div className="text-xs text-secondary-600">建筑一级资质</div>
-            </div>
-            
-            <div className="absolute -bottom-4 -left-4 bg-white shadow-lg rounded-lg p-4 border border-secondary-200">
-              <div className="text-sm font-medium text-secondary-900">服务保障</div>
-              <div className="text-xs text-secondary-600">终身保修</div>
+            <div className="text-center">
+              <div className="bg-primary-500 text-white rounded-2xl p-8">
+                <h4 className="text-2xl font-bold mb-4">{t.additional.cta.title}</h4>
+                <p className="text-primary-100 mb-6">
+                  {t.additional.cta.description}
+                </p>
+                <button className="bg-white text-primary-500 font-semibold py-3 px-6 rounded-lg hover:bg-gray-100 transition-colors">
+                  {t.additional.cta.button}
+                </button>
+              </div>
             </div>
           </div>
         </div>
