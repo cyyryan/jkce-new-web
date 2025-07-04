@@ -10,7 +10,7 @@ const text = {
         name: 'Mr. Zhang',
         position: 'Real Estate Developer',
         company: 'Hengji Group',
-        content: 'The professional standards of JKCE Construction impressed me deeply. From project planning to final delivery, every aspect was handled very well. Their team is not only technically strong but also has excellent service attitude. They are partners worth long-term cooperation.',
+        content: 'JKCE PROBUILD CONTRACTING CORP 的专业水准让我印象深刻，从项目规划到最终交付，每个环节都做得非常到位。他们的团队不仅技术过硬，服务态度也很好，是值得长期合作的伙伴。',
         rating: 5,
         project: 'Commercial Complex Project'
       },
@@ -19,7 +19,7 @@ const text = {
         name: 'Ms. Li',
         position: 'Property Owner',
         company: 'Individual Client',
-        content: 'Our villa was built by JKCE Construction, and the entire process was very smooth. The designers are professional, and the construction quality is excellent. We have been living here for over a year with no issues. Highly recommended!',
+        content: '我们家的别墅就是JKCE PROBUILD CONTRACTING CORP 建造的，整个过程非常顺利。设计师很专业，施工质量也很好，现在住了一年多，没有任何问题。强烈推荐！',
         rating: 5,
         project: 'Private Villa Project'
       },
@@ -57,7 +57,7 @@ const text = {
         name: '张先生',
         position: '房地产开发商',
         company: '恒基集团',
-        content: 'JKCE承建商的专业水准让我印象深刻，从项目规划到最终交付，每个环节都做得非常到位。他们的团队不仅技术过硬，服务态度也很好，是值得长期合作的伙伴。',
+        content: 'JKCE PROBUILD CONTRACTING CORP 的专业水准让我印象深刻，从项目规划到最终交付，每个环节都做得非常到位。他们的团队不仅技术过硬，服务态度也很好，是值得长期合作的伙伴。',
         rating: 5,
         project: '商业综合体项目'
       },
@@ -66,7 +66,7 @@ const text = {
         name: '李女士',
         position: '业主',
         company: '个人客户',
-        content: '我们家的别墅就是JKCE承建商建造的，整个过程非常顺利。设计师很专业，施工质量也很好，现在住了一年多，没有任何问题。强烈推荐！',
+        content: '我们家的别墅就是JKCE PROBUILD CONTRACTING CORP 建造的，整个过程非常顺利。设计师很专业，施工质量也很好，现在住了一年多，没有任何问题。强烈推荐！',
         rating: 5,
         project: '私人别墅项目'
       },
@@ -75,7 +75,7 @@ const text = {
         name: '王总',
         position: '企业负责人',
         company: '科技公司',
-        content: '我们的办公楼项目交给JKCE承建商后，他们按时完成了所有工作，质量超出预期。特别是智能建筑系统的集成，做得非常专业。',
+        content: '我们的办公楼项目交给JKCE Construction, they completed all work on time with quality exceeding expectations. Especially the integration of smart building systems was done very professionally.',
         rating: 5,
         project: '智能办公楼项目'
       },
@@ -84,7 +84,7 @@ const text = {
         name: '陈先生',
         position: '项目经理',
         company: '投资公司',
-        content: '与JKCE承建商合作过多个项目，他们始终保持着高水准的专业服务。项目管理规范，沟通顺畅，是值得信赖的合作伙伴。',
+        content: '与JKCE Construction合作过多个项目，他们始终保持着高水准的专业服务。项目管理规范，沟通顺畅，是值得信赖的合作伙伴。',
         rating: 5,
         project: '公寓楼项目'
       }
