@@ -65,10 +65,6 @@ const HeroSection = ({ language = 'en', onPageChange }) => {
         >
           {/* 主要视频源 - 本地文件 */}
           <source src="/videos/banner-video-v2.mp4" type="video/mp4" />
-          {/* 备用视频源 - 如果本地文件不存在 */}
-          <source src="https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_1mb.mp4" type="video/mp4" />
-          {/* 第二备用视频源 */}
-          <source src="https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4" />
           您的浏览器不支持视频播放。
         </video>
         
