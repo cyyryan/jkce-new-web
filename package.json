@@ -6,8 +6,12 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+<<<<<<< HEAD
     "preview": "vite preview",
     "deploy": "gh-pages -d dist"
+=======
+    "preview": "vite preview"
+>>>>>>> 8f64a4c770d6be8cd2947b2494bf6e9dfcc78ced
   },
   "dependencies": {
     "@headlessui/react": "^2.2.4",
@@ -21,7 +25,10 @@
     "@types/react-dom": "^18.0.10",
     "@vitejs/plugin-react": "^3.1.0",
     "autoprefixer": "^10.4.13",
+<<<<<<< HEAD
     "gh-pages": "^6.3.0",
+=======
+>>>>>>> 8f64a4c770d6be8cd2947b2494bf6e9dfcc78ced
     "postcss": "^8.4.21",
     "tailwindcss": "^3.2.4",
     "vite": "^4.1.0"
