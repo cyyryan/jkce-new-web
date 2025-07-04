@@ -55,16 +55,18 @@ const HeroSection = ({ language = 'en', onPageChange }) => {
     <section className="relative h-screen overflow-hidden">
       {/* Video Background */}
       <div className="absolute inset-0">
-        <iframe
-          src="https://player.vimeo.com/video/1098913311?autoplay=1&loop=1&background=1&muted=1"
-          frameBorder="0"
-          allow="autoplay; fullscreen; picture-in-picture"
-          allowFullScreen
-          className="w-full h-full object-cover"
-          title="Banner Video"
-        ></iframe>
-        {/* Video Overlay */}
-        <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+        <div className="w-full h-full absolute inset-0">
+          <iframe
+            src="https://player.vimeo.com/video/1098913311?autoplay=1&loop=1&background=1&muted=1"
+            frameBorder="0"
+            allow="autoplay; fullscreen; picture-in-picture"
+            allowFullScreen
+            className="w-full h-full absolute inset-0"
+            style={{ objectFit: 'cover' }}
+            title="Banner Video"
+          ></iframe>
+          <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+        </div>
       </div>
 
       {/* Content */}
