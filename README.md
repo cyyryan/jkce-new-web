@@ -1,177 +1,181 @@
-# JKCE承建商官方网站
+# JKCE PROBUILD CONTRACTING CORP - Official Website
 
-一个现代化的承建商公司网站，使用 React + Tailwind CSS 构建。
+A modern construction company website built with React + Tailwind CSS.
 
-## 项目特色
+## Project Features
 
-- 🎨 **现代化设计** - 采用 Tailwind CSS 构建的响应式设计
-- ⚡ **高性能** - 基于 Vite 构建，快速开发和构建
-- 📱 **移动端友好** - 完全响应式设计，支持各种设备
-- 🚀 **SEO 优化** - 良好的页面结构和元数据
-- 🎯 **用户体验** - 直观的导航和交互设计
+- 🎨 **Modern Design** - Responsive design built with Tailwind CSS
+- ⚡ **High Performance** - Built with Vite for fast development and build
+- 📱 **Mobile Friendly** - Fully responsive design supporting all devices
+- 🚀 **SEO Optimized** - Good page structure and metadata
+- 🎯 **User Experience** - Intuitive navigation and interactive design
 
-## 技术栈
+## Tech Stack
 
-- **前端框架**: React 18
-- **样式框架**: Tailwind CSS
-- **构建工具**: Vite
-- **路由**: React Router DOM
-- **字体**: Inter (Google Fonts)
+- **Frontend Framework**: React 18
+- **Styling Framework**: Tailwind CSS
+- **Build Tool**: Vite
+- **Routing**: React Router DOM
+- **Font**: Inter (Google Fonts)
 
-## 项目结构
+## Project Structure
 
 ```
 jkce-new-web/
-├── public/                 # 静态资源
+├── public/                 # Static assets
 ├── src/
-│   ├── components/         # 可复用组件
-│   │   ├── Navbar.jsx     # 导航栏
-│   │   ├── Footer.jsx     # 页脚
-│   │   ├── HeroSection.jsx # 英雄区域
-│   │   ├── ServicesOverview.jsx # 服务概览
-│   │   ├── WhyChooseUs.jsx # 为什么选择我们
-│   │   ├── RecentProjects.jsx # 最近项目
-│   │   ├── Testimonials.jsx # 客户评价
-│   │   └── CTASection.jsx  # 行动号召
-│   ├── pages/             # 页面组件
-│   │   ├── Home.jsx       # 首页
-│   │   ├── About.jsx      # 关于我们
-│   │   ├── Services.jsx   # 服务项目
-│   │   ├── Projects.jsx   # 工程案例
-│   │   └── Contact.jsx    # 联系我们
-│   ├── App.jsx            # 主应用组件
-│   ├── main.jsx           # 应用入口
-│   └── index.css          # 全局样式
-├── index.html             # HTML 模板
-├── package.json           # 项目配置
-├── vite.config.js         # Vite 配置
-├── tailwind.config.js     # Tailwind 配置
-└── postcss.config.js      # PostCSS 配置
+│   ├── components/         # Reusable components
+│   │   ├── Navbar.jsx     # Navigation bar
+│   │   ├── Footer.jsx     # Footer
+│   │   ├── HeroSection.jsx # Hero section
+│   │   ├── ServicesOverview.jsx # Services overview
+│   │   ├── WhyChooseUs.jsx # Why choose us
+│   │   ├── RecentProjects.jsx # Recent projects
+│   │   ├── Testimonials.jsx # Customer testimonials
+│   │   └── CTASection.jsx  # Call to action
+│   ├── pages/             # Page components
+│   │   ├── Home.jsx       # Home page
+│   │   ├── About.jsx      # About us
+│   │   ├── Services.jsx   # Services
+│   │   ├── Projects.jsx   # Project portfolio
+│   │   └── Contact.jsx    # Contact us
+│   ├── data/              # Data management
+│   │   ├── projects.js    # Project data source
+│   │   ├── projectTemplate.js # Project template
+│   │   └── exampleNewProject.js # Example for adding projects
+│   ├── App.jsx            # Main app component
+│   ├── main.jsx           # App entry point
+│   └── index.css          # Global styles
+├── index.html             # HTML template
+├── package.json           # Project configuration
+├── vite.config.js         # Vite configuration
+├── tailwind.config.js     # Tailwind configuration
+├── postcss.config.js      # PostCSS configuration
+└── PROJECT_MANAGEMENT_GUIDE.md # Project management guide
 ```
 
-## 页面功能
+## Page Features
 
-### 首页 (/)
-- 英雄区域展示公司核心价值
-- 服务项目概览
-- 公司优势介绍
-- 最新工程案例
-- 客户评价展示
-- 行动号召区域
+### Home Page (/)
+- Hero section showcasing company core values
+- Services overview
+- Company advantages
+- Latest project cases
+- Customer testimonials
+- Call to action section
 
-### 关于我们 (/about)
-- 公司简介
-- 使命和愿景
-- 核心团队介绍
-- 发展历程时间线
+### About Us (/about)
+- Company introduction
+- Mission and vision
+- Core team introduction
+- Development timeline
 
-### 服务项目 (/services)
-- 详细服务介绍
-- 服务流程说明
-- 各类型项目展示
+### Services (/services)
+- Detailed service introduction
+- Service process explanation
+- Various project type showcases
 
-### 工程案例 (/projects)
-- 项目案例展示
-- 分类筛选功能
-- 项目详情信息
+### Project Portfolio (/projects)
+- Project case showcase
+- Category filtering functionality
+- Project detail information
 
-### 联系我们 (/contact)
-- 联系信息展示
-- 在线咨询表单
-- 公司位置信息
-- 服务时间说明
+### Contact Us (/contact)
+- Contact information display
+- Online consultation form
+- Company location information
+- Service hours
 
-## 安装和运行
+## Installation and Setup
 
-### 环境要求
+### Requirements
 - Node.js 16+ 
-- npm 或 yarn
+- npm or yarn
 
-### 安装依赖
+### Install Dependencies
 ```bash
 npm install
 ```
 
-### 开发模式
+### Development Mode
 ```bash
 npm run dev
 ```
-项目将在 http://localhost:3000 启动
+Project will start at http://localhost:3000
 
-### 构建生产版本
+### Build Production Version
 ```bash
 npm run build
 ```
 
-### 预览生产版本
+### Preview Production Version
 ```bash
 npm run preview
 ```
 
-## 自定义配置
+## Customization
 
-### 颜色主题
-在 `tailwind.config.js` 中修改颜色配置：
+### Color Theme
+Modify color configuration in `tailwind.config.js`:
 ```javascript
 colors: {
   primary: {
-    50: '#f0f9ff',
-    100: '#e0f2fe',
-    // ... 其他色阶
+    50: '#fffbea',
+    100: '#fff3c4',
+    // ... other color scales
   },
   secondary: {
-    // ... 次要颜色
+    // ... secondary colors
   }
 }
 ```
 
-### 字体
-在 `tailwind.config.js` 中修改字体配置：
+### Fonts
+Modify font configuration in `tailwind.config.js`:
 ```javascript
 fontFamily: {
   sans: ['Inter', 'system-ui', 'sans-serif'],
 }
 ```
 
-## 部署
+## Deployment
 
-### 静态部署
-构建完成后，`dist` 文件夹中的文件可以直接部署到任何静态文件服务器。
+### Static Deployment
+After building, files in the `dist` folder can be directly deployed to any static file server.
 
-### 推荐部署平台
+### Recommended Deployment Platforms
 - Vercel
 - Netlify
 - GitHub Pages
-- 阿里云 OSS
-- 腾讯云 COS
+- AWS S3
+- Google Cloud Storage
 
-## 浏览器支持
+## Browser Support
 
-- Chrome (最新版本)
-- Firefox (最新版本)
-- Safari (最新版本)
-- Edge (最新版本)
+- Chrome (latest version)
+- Firefox (latest version)
+- Safari (latest version)
+- Edge (latest version)
 
-## 贡献指南
+## Contributing
 
-1. Fork 项目
-2. 创建功能分支 (`git checkout -b feature/AmazingFeature`)
-3. 提交更改 (`git commit -m 'Add some AmazingFeature'`)
-4. 推送到分支 (`git push origin feature/AmazingFeature`)
-5. 打开 Pull Request
+1. Fork the project
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-## 许可证
+## License
 
-本项目采用 MIT 许可证 - 查看 [LICENSE](LICENSE) 文件了解详情。
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 联系方式
+## Contact Information
 
-如有任何问题或建议，请通过以下方式联系：
+For any questions or suggestions, please contact us:
 
-- 邮箱: info@jkce.com
-- 电话: 400-888-8888
-- 地址: 深圳市南山区科技园
+- **Email**: info@jkceprobuild.com
+- **Address**: 240-3600 Viking Way, Richmond, BC V6V 1N6, Canada
 
 ---
 
-© 2024 JKCE承建商. 保留所有权利.
+© 2024 JKCE PROBUILD CONTRACTING CORP. All rights reserved.
