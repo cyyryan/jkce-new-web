@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import emailjs from '@emailjs/browser'
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -9,6 +10,14 @@ const Contact = () => {
     projectType: '',
     message: ''
   })
+  
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState(null) // 'success', 'error', null
+
+  // 初始化 EmailJS
+  useEffect(() => {
+    emailjs.init("YOUR_PUBLIC_KEY") // 需要替换为您的 EmailJS Public Key
+  }, [])
 
   const handleChange = (e) => {
     setFormData({
@@ -17,10 +26,46 @@ const Contact = () => {
     })
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    // Handle form submission
-    console.log('Form submitted:', formData)
+    setIsSubmitting(true)
+    setSubmitStatus(null)
+
+    try {
+      // 发送邮件
+      const result = await emailjs.send(
+        'YOUR_SERVICE_ID', // 需要替换为您的 EmailJS Service ID
+        'YOUR_TEMPLATE_ID', // 需要替换为您的 EmailJS Template ID
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          from_phone: formData.phone,
+          from_company: formData.company,
+          project_type: formData.projectType,
+          message: formData.message,
+          to_email: 'info@jkceprobuild.com' // 接收邮件的邮箱
+        },
+        'YOUR_PUBLIC_KEY' // 需要替换为您的 EmailJS Public Key
+      )
+
+      console.log('Email sent successfully:', result)
+      setSubmitStatus('success')
+      
+      // 清空表单
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        company: '',
+        projectType: '',
+        message: ''
+      })
+    } catch (error) {
+      console.error('Email send failed:', error)
+      setSubmitStatus('error')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   const contactInfo = [
@@ -203,10 +248,38 @@ const Contact = () => {
 
                 <button
                   type="submit"
-                  className="w-full bg-primary-500 text-white font-semibold py-4 px-8 rounded-lg hover:bg-primary-600 transition-colors text-lg"
+                  disabled={isSubmitting}
+                  className={`w-full font-semibold py-4 px-8 rounded-lg transition-colors text-lg ${
+                    isSubmitting 
+                      ? 'bg-gray-400 cursor-not-allowed' 
+                      : 'bg-primary-500 hover:bg-primary-600 text-white'
+                  }`}
                 >
-                  Send Message
+                  {isSubmitting ? 'Sending...' : 'Send Message'}
                 </button>
+
+                {/* 成功/错误提示 */}
+                {submitStatus === 'success' && (
+                  <div className="mt-4 p-4 bg-green-100 border border-green-400 text-green-700 rounded-lg">
+                    <div className="flex items-center">
+                      <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                      </svg>
+                      Thank you! Your message has been sent successfully. We'll get back to you soon.
+                    </div>
+                  </div>
+                )}
+
+                {submitStatus === 'error' && (
+                  <div className="mt-4 p-4 bg-red-100 border border-red-400 text-red-700 rounded-lg">
+                    <div className="flex items-center">
+                      <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+                      </svg>
+                      Sorry, there was an error sending your message. Please try again or contact us directly.
+                    </div>
+                  </div>
+                )}
               </form>
             </div>
 
