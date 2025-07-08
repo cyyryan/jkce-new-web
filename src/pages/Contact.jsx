@@ -16,7 +16,7 @@ const Contact = () => {
 
   // 初始化 EmailJS
   useEffect(() => {
-    emailjs.init("YOUR_PUBLIC_KEY") // 需要替换为您的 EmailJS Public Key
+    emailjs.init("YLsFyrbnnW54_reNK")
   }, [])
 
   const handleChange = (e) => {
@@ -34,8 +34,8 @@ const Contact = () => {
     try {
       // 发送邮件
       const result = await emailjs.send(
-        'YOUR_SERVICE_ID', // 需要替换为您的 EmailJS Service ID
-        'YOUR_TEMPLATE_ID', // 需要替换为您的 EmailJS Template ID
+        'service_44b3a9r',
+        'template_pngskco',
         {
           from_name: formData.name,
           from_email: formData.email,
@@ -45,7 +45,7 @@ const Contact = () => {
           message: formData.message,
           to_email: 'info@jkceprobuild.com' // 接收邮件的邮箱
         },
-        'YOUR_PUBLIC_KEY' // 需要替换为您的 EmailJS Public Key
+        'YLsFyrbnnW54_reNK'
       )
 
       console.log('Email sent successfully:', result)
