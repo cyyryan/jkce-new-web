@@ -75,7 +75,7 @@ const text = {
         name: '王总',
         position: '企业负责人',
         company: '科技公司',
-        content: '我们的办公楼项目交给JKCE Construction, they completed all work on time with quality exceeding expectations. Especially the integration of smart building systems was done very professionally.',
+        content: '我们的办公楼项目交给JKCE PROBUILD CONTRACTING CORP，他们按时完成了所有工作，质量超出预期。特别是智能建筑系统的集成做得非常专业。',
         rating: 5,
         project: '智能办公楼项目'
       },
@@ -84,7 +84,7 @@ const text = {
         name: '陈先生',
         position: '项目经理',
         company: '投资公司',
-        content: '与JKCE Construction合作过多个项目，他们始终保持着高水准的专业服务。项目管理规范，沟通顺畅，是值得信赖的合作伙伴。',
+        content: '与JKCE PROBUILD CONTRACTING CORP合作过多个项目，他们始终保持着高水准的专业服务。项目管理规范，沟通顺畅，是值得信赖的合作伙伴。',
         rating: 5,
         project: '公寓楼项目'
       }

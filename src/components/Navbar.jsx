@@ -23,14 +23,14 @@ export default function Navbar({ onPageChange, language, setLanguage }) {
       { name: 'Home', page: 'home' },
       { name: 'Our Work', page: 'projects' },
       { name: 'Divisions', page: 'services' },
-      { name: 'Blog', page: 'about' },
+      { name: 'Blog', page: 'blog' },
       { name: 'Contact', page: 'contact' }
     ],
     zh: [
       { name: '首页', page: 'home' },
       { name: '工程案例', page: 'projects' },
       { name: '业务板块', page: 'services' },
-      { name: '博客', page: 'about' },
+      { name: '博客', page: 'blog' },
       { name: '联系我们', page: 'contact' }
     ]
   }

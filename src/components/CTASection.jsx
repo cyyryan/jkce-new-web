@@ -19,8 +19,8 @@ const CTASection = ({ language = 'en' }) => {
   const t = text[language] || text.en
 
   return (
-    <section className="bg-primary-600 text-white py-20 rounded-2xl shadow-2xl mx-4 my-12 relative overflow-hidden">
-      <div className="absolute inset-x-0 top-0 h-32 pointer-events-none" style={{background: 'linear-gradient(180deg,rgba(59,130,246,0.18) 0%,rgba(59,130,246,0.00) 100%)'}}></div>
+    <section className="bg-white text-gray-900 py-20 w-full shadow-2xl relative overflow-hidden">
+      <div className="absolute inset-x-0 top-0 h-32 pointer-events-none" style={{background: 'linear-gradient(180deg,rgba(59,130,246,0.08) 0%,rgba(59,130,246,0.00) 100%)'}}></div>
       <div className="container-custom text-center relative z-10">
         <h2 className="text-3xl lg:text-4xl font-bold mb-6">
           {t.title}
@@ -29,10 +29,10 @@ const CTASection = ({ language = 'en' }) => {
           {t.subtitle}
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <button className="bg-white text-primary-600 hover:bg-gray-100 px-8 py-4 rounded-lg font-semibold transition-colors">
+          <button className="bg-primary-600 text-white hover:bg-primary-700 px-8 py-4 rounded-lg font-semibold transition-colors">
             {t.getQuote}
           </button>
-          <button className="border-2 border-white text-white hover:bg-white hover:text-primary-600 px-8 py-4 rounded-lg font-semibold transition-colors">
+          <button className="border-2 border-primary-600 text-primary-600 hover:bg-primary-600 hover:text-white px-8 py-4 rounded-lg font-semibold transition-colors">
             {t.contactUs}
           </button>
         </div>

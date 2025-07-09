@@ -1,6 +1,31 @@
 import React from 'react'
 
-const Footer = () => {
+const text = {
+  en: {
+    companyDesc: 'A Richmond, BC – based construction company specializing in construction services with two key divisions: Earthwork & Site Preparation & Construction Management.',
+    contact: 'CONTACT',
+    support: 'SUPPORT',
+    joinTeam: 'Join Our Team',
+    privacyPolicy: 'Privacy Policy',
+    bbbReview: 'BBB Business Review',
+    copyright: '© 2024 JKCE Probuild Contracting Corp. All rights reserved.',
+    bbbAccredited: 'BBB Accredited Business'
+  },
+  zh: {
+    companyDesc: '一家位于加拿大列治文的建筑公司，专注于建筑服务，拥有两个核心部门：土方工程与场地准备和施工管理。',
+    contact: '联系',
+    support: '支持',
+    joinTeam: '加入我们',
+    privacyPolicy: '隐私政策',
+    bbbReview: 'BBB商业评价',
+    copyright: '© 2024 JKCE Probuild Contracting Corp. 保留所有权利。',
+    bbbAccredited: 'BBB认证企业'
+  }
+}
+
+const Footer = ({ language = 'en' }) => {
+  const t = text[language] || text.en
+
   return (
     <footer className="bg-gray-900 text-white">
       <div className="container-custom py-16">
@@ -9,8 +34,7 @@ const Footer = () => {
           <div className="lg:col-span-2">
             <h3 className="text-2xl font-bold mb-4">JKCE PROBUILD</h3>
             <p className="text-gray-300 mb-6 leading-relaxed">
-              A Richmond, BC – based construction company specializing in construction services 
-              with two key divisions: Earthwork & Site Preparation & Construction Management.
+              {t.companyDesc}
             </p>
             <div className="flex space-x-4">
               <a href="#" className="text-gray-400 hover:text-white transition-colors">
@@ -33,7 +57,7 @@ const Footer = () => {
 
           {/* Contact Info */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">CONTACT</h4>
+            <h4 className="text-lg font-semibold mb-4">{t.contact}</h4>
             <div className="space-y-3 text-gray-300">
               <div className="flex items-start">
                 <svg className="w-5 h-5 text-primary-400 mr-3 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
@@ -65,16 +89,16 @@ const Footer = () => {
 
           {/* Support */}
           <div>
-            <h4 className="text-lg font-semibold mb-4">SUPPORT</h4>
+            <h4 className="text-lg font-semibold mb-4">{t.support}</h4>
             <div className="space-y-3">
               <a href="#" className="block text-gray-300 hover:text-white transition-colors">
-                Join Our Team
+                {t.joinTeam}
               </a>
               <a href="#" className="block text-gray-300 hover:text-white transition-colors">
-                Privacy Policy
+                {t.privacyPolicy}
               </a>
               <a href="#" className="block text-gray-300 hover:text-white transition-colors">
-                BBB Business Review
+                {t.bbbReview}
               </a>
             </div>
           </div>
@@ -84,7 +108,7 @@ const Footer = () => {
         <div className="border-t border-gray-800 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400 text-sm">
-              © 2024 JKCE Probuild Contracting Corp. All rights reserved.
+              {t.copyright}
             </p>
             <div className="flex items-center mt-4 md:mt-0">
               <img 
@@ -92,7 +116,7 @@ const Footer = () => {
                 alt="BBB Accredited Business" 
                 className="h-8 mr-4"
               />
-              <span className="text-gray-400 text-sm">BBB Accredited Business</span>
+              <span className="text-gray-400 text-sm">{t.bbbAccredited}</span>
             </div>
           </div>
         </div>

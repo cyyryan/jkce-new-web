@@ -56,15 +56,18 @@ const HeroSection = ({ language = 'en', onPageChange }) => {
       {/* Video Background */}
       <div className="absolute inset-0 w-full h-full">
         <div className="w-full h-full absolute inset-0">
-          <iframe
-            src="https://player.vimeo.com/video/1098913311?autoplay=1&loop=1&background=1&muted=1"
-            frameBorder="0"
-            allow="autoplay; fullscreen; picture-in-picture"
-            allowFullScreen
-            className="absolute inset-0 w-full h-full"
-            style={{ minWidth: '100vw', minHeight: '100vh', width: '100vw', height: '100vh', objectFit: 'cover' }}
-            title="Banner Video"
-          ></iframe>
+          <video
+            ref={videoRef}
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover"
+            style={{ minWidth: '100vw', minHeight: '100vh', width: '100vw', height: '100vh' }}
+          >
+            <source src="/videos/banner-video-v2.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
           <div className="absolute inset-0 bg-black bg-opacity-50"></div>
         </div>
       </div>

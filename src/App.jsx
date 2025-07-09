@@ -4,6 +4,7 @@ import Home from './pages/Home'
 import About from './pages/About'
 import Services from './pages/Services'
 import Projects from './pages/Projects'
+import Blog from './pages/Blog'
 import Contact from './pages/Contact'
 import Footer from './components/Footer'
 
@@ -21,6 +22,8 @@ function App() {
         return <Services language={language} />
       case 'projects':
         return <Projects language={language} />
+      case 'blog':
+        return <Blog language={language} />
       case 'contact':
         return <Contact language={language} />
       default:
